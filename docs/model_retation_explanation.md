@@ -1,0 +1,3 @@
+## Explication de la relation entre les modèles
+- Une reservation ne convcerne qu'une seule salle, mais une salle peut avoir plusieurs reservations. C'est une relation de type "one to many" entre les modèles Reservation et Salle. raison pour laquelle la classe Reservation contient un attribut de type Salle, tandis que la classe Salle contient une liste de reservations.
+On a exploter les deux relation (Reservation vers Salle et Salle vers Reservation) pour faciliter la navigation entre les deux modèles.
