@@ -7,6 +7,18 @@ public final class Salle extends AbstractEntity {
         super();
     }
 
+    private String code;
+    private String description;
+    private TypeSalle typeSalle;
+
+    public TypeSalle getTypeSalle() {
+        return typeSalle;
+    }
+
+    public void setTypeSalle(TypeSalle typeSalle) {
+        this.typeSalle = typeSalle;
+    }
+
     private List<Reservation> reservations;
 
     public List<Reservation> getReservations() {
@@ -16,9 +28,6 @@ public final class Salle extends AbstractEntity {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-
-    private String code;
-    private String description;
 
     public String getCode() {
         return code;

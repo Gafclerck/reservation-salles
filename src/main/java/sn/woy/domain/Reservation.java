@@ -9,6 +9,15 @@ public final class Reservation extends AbstractEntity {
 
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
+    private StatusReservation status;
+
+    public StatusReservation getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusReservation status) {
+        this.status = status;
+    }
 
     private Salle salle;
 
