@@ -1,5 +1,6 @@
 package sn.woy.repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import sn.woy.domain.Reservation;
@@ -39,6 +40,25 @@ public interface ReservationRepository {
      * @return une copie immuable des reservations de la salle
      */
     List<Reservation> findBySalleId(Integer salleId);
+
+    /**
+     * Liste les reservations d'une salle donnee, triees par date de debut croissante.
+     *
+     * @param salleId l'identifiant de la salle
+     * @return les reservations de la salle triees par date de debut
+     */
+    List<Reservation> findBySalleIdTrieParDateDebut(Integer salleId);
+
+    /**
+     * Indique si un creneau chevauche au moins une reservation existante de la salle.
+     * Deux creneaux se chevauchent si {@code debut < fin existante} et {@code fin > debut existante}.
+     *
+     * @param salleId l'identifiant de la salle
+     * @param debut le debut du creneau recherche
+     * @param fin la fin du creneau recherche
+     * @return {@code true} si un chevauchement existe, {@code false} sinon
+     */
+    boolean existeChevauchement(Integer salleId, LocalDateTime debut, LocalDateTime fin);
 
     /**
      * Indique si une reservation existe pour un identifiant donne.

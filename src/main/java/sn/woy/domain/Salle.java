@@ -10,6 +10,24 @@ public final class Salle extends AbstractEntity {
     private String code;
     private String description;
     private TypeSalle typeSalle;
+    private int capacite;
+    private boolean active;
+
+    public int getCapacite() {
+        return capacite;
+    }
+
+    public void setCapacite(int capacite) {
+        this.capacite = capacite;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     public TypeSalle getTypeSalle() {
         return typeSalle;

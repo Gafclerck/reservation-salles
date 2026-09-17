@@ -1,6 +1,8 @@
 package sn.woy.repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +57,22 @@ public final class InMemoryReservationRepository implements ReservationRepositor
     }
 
     @Override
+    public List<Reservation> findBySalleIdTrieParDateDebut(Integer salleId) {
+        return reservations.values().stream()
+                .filter(reservation -> appartientALaSalle(reservation, salleId))
+                .sorted(Comparator.comparing(Reservation::getDateDebut))
+                .toList();
+    }
+
+    @Override
+    public boolean existeChevauchement(Integer salleId, LocalDateTime debut, LocalDateTime fin) {
+        return reservations.values().stream()
+                .filter(reservation -> appartientALaSalle(reservation, salleId))
+                .anyMatch(reservation -> debut.isBefore(reservation.getDateFin())
+                        && fin.isAfter(reservation.getDateDebut()));
+    }
+
+    @Override
     public boolean existsById(Integer id) {
         return reservations.containsKey(id);
     }
@@ -62,6 +80,11 @@ public final class InMemoryReservationRepository implements ReservationRepositor
     @Override
     public long count() {
         return reservations.size();
+    }
+
+    private boolean appartientALaSalle(Reservation reservation, Integer salleId) {
+        Salle salle = reservation.getSalle();
+        return salle != null && salle.getId() != null && salle.getId().equals(salleId);
     }
 
     private void rattacherSalle(Reservation reservation) {
