@@ -33,6 +33,14 @@ public interface SalleRepository {
     List<Salle> findAll();
 
     /**
+     * Recherche les salles actives dont la capacite atteint un minimum.
+     *
+     * @param capaciteMinimale la capacite minimale requise
+     * @return les salles actives filtrees, triees par code
+     */
+    List<Salle> findActivesAvecCapaciteMinimale(int capaciteMinimale);
+
+    /**
      * Indique si une salle existe pour un identifiant donne.
      *
      * @param id l'identifiant recherche

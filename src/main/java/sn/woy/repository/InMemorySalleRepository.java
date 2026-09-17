@@ -1,5 +1,6 @@
 package sn.woy.repository;
 
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +38,15 @@ public final class InMemorySalleRepository implements SalleRepository {
     @Override
     public List<Salle> findAll() {
         return List.copyOf(salles.values());
+    }
+
+    @Override
+    public List<Salle> findActivesAvecCapaciteMinimale(int capaciteMinimale) {
+        return salles.values().stream()
+                .filter(Salle::isActive)
+                .filter(salle -> salle.getCapacite() >= capaciteMinimale)
+                .sorted(Comparator.comparing(Salle::getCode))
+                .toList();
     }
 
     @Override
