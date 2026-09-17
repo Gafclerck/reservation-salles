@@ -19,6 +19,8 @@ public class DemoClass {
         s1.setCode("A101");
         s1.setDescription("Salle de cours amphitheatre");
         s1.setTypeSalle(TypeSalle.COURS);
+        s1.setCapacite(120);
+        s1.setActive(true);
         s1.setReservations(new ArrayList<>());
         demoSalles.add(s1);
 
@@ -27,6 +29,8 @@ public class DemoClass {
         s2.setCode("B202");
         s2.setDescription("Salle de soutenance kube");
         s2.setTypeSalle(TypeSalle.SOUTENANCE);
+        s2.setCapacite(40);
+        s2.setActive(true);
         s2.setReservations(new ArrayList<>());
         demoSalles.add(s2);
 
@@ -35,6 +39,8 @@ public class DemoClass {
         s3.setCode("C303");
         s3.setDescription("Salle de reunion direction");
         s3.setTypeSalle(TypeSalle.REUNION);
+        s3.setCapacite(15);
+        s3.setActive(true);
         s3.setReservations(new ArrayList<>());
         demoSalles.add(s3);
 
@@ -43,6 +49,8 @@ public class DemoClass {
         s4.setCode("D404");
         s4.setDescription("Salle de travaux pratiques info");
         s4.setTypeSalle(TypeSalle.TRAVAUX_PRACTIQUES);
+        s4.setCapacite(25);
+        s4.setActive(true);
         s4.setReservations(new ArrayList<>());
         demoSalles.add(s4);
 
@@ -51,6 +59,8 @@ public class DemoClass {
         s5.setCode("E505");
         s5.setDescription("Salle evenement etudiant");
         s5.setTypeSalle(TypeSalle.EVENEMENT_ETUDIANT);
+        s5.setCapacite(200);
+        s5.setActive(true);
         s5.setReservations(new ArrayList<>());
         demoSalles.add(s5);
 
@@ -59,6 +69,8 @@ public class DemoClass {
         s6.setCode("F606");
         s6.setDescription("Salle de cours TD electronique");
         s6.setTypeSalle(TypeSalle.COURS);
+        s6.setCapacite(60);
+        s6.setActive(false);
         s6.setReservations(new ArrayList<>());
         demoSalles.add(s6);
     }
